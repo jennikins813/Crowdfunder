@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+
+    if current_user
+      @breakpoint = @project.breakpoints.build
+    end
   end
 
   def new
