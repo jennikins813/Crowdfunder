@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BreakpointsControllerTest < ActionController::TestCase
+class RewardsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

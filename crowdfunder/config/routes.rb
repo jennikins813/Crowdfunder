@@ -2,7 +2,7 @@ Crowdfunder::Application.routes.draw do
   resources :projects
 
   resources :projects do
-    resources :breakpoints, :only => [:show, :create, :destroy]
+    resources :rewards, :only => [:show, :create, :destroy]
   end
 
   

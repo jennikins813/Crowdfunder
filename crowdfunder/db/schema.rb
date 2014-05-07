@@ -13,22 +13,22 @@
 
 ActiveRecord::Schema.define(version: 20140507195613) do
 
-  create_table "breakpoints", force: true do |t|
-    t.integer  "amount"
-    t.text     "description"
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.integer  "pledge_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "projects", force: true do |t|
     t.string   "title"
     t.text     "blurb"
     t.integer  "funding_goal"
     t.date     "start_date"
     t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rewards", force: true do |t|
+    t.integer  "amount"
+    t.text     "description"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "pledge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

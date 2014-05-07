@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 
     if current_user
-      @breakpoint = @project.breakpoints.build
+      @reward = @project.rewards.build
     end
   end
 
