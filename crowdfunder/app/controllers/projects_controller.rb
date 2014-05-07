@@ -6,9 +6,9 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    if current_user
-      @reward = @project.rewards.build
-    end
+    #if current_user
+    #  @reward = @project.rewards.build
+    #end
   end
 
   def new

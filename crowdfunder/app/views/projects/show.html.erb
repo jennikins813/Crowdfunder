@@ -1,2 +1,33 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1>Projects Page</h1>
+
+<p>
+	<strong>Title:</strong>
+	<%= @project.title %>
+</p>
+
+<p>
+	<strong>Blurb:</strong>
+	<%= @project.blurb %>
+</p>
+
+<p>
+	<strong>Funding Goal:</strong>
+	<%= @project.funding_goal %>
+	<!--remove above since we defined formatted_price in the product model that converts the price_in_cents to a price in dollars. see below line-->
+	<!--  @project.formatted_price  -->
+</p>
+
+<p>
+	<strong>Start Date:</strong>
+	<%= @project.start_date %>
+</p>
+
+<p>
+	<strong>End Date:</strong>
+	<%= @project.end_date %>
+</p>
+
+
+
+<%= link_to 'Edit Project', edit_project_path(@project) %>
+<%= link_to 'Back', projects_path %>
