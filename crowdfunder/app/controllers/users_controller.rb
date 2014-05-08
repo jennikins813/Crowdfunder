@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   	@user = User.new user_parameters
   	if @user.save
   		auto_login(@user)
-  		redirect_to root_url, :notice => "Signed Up!"
+  		redirect_to project_url, :notice => "Signed Up!"
   	else
   		render :new
   	end
@@ -16,6 +16,5 @@ class UsersController < ApplicationController
   private
   def user_parameters
   	params.require(:user).permit(:name, :role, :email, :password, :password_confirmation)
-  end
   end
 end

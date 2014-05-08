@@ -1,2 +1,25 @@
 <h1>Crowdfunder Projects</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+
+<strong><%= link_to "New Project", "/projects/new" %></strong>
+<br>
+<br>
+<table>
+	<tr>
+		<th>Title:</th>
+		<th>Blurb:</th>
+		<th>Funding Goal:</th>
+
+	</tr>
+
+	<% @projects.each do |project| %>
+		<tr>
+			<td><%= project.title %></td>
+			<td><%= project.blurb %></td>
+			<td><%= project.funding_goal %></td>
+			<td><%= link_to 'Show', project_path(project) %></td>
+			<td><%= link_to 'Edit', edit_project_path(project) %></td>
+			<td><%= link_to 'Destroy', project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+
+</table>
