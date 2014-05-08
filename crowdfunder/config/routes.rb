@@ -1,9 +1,5 @@
 Crowdfunder::Application.routes.draw do
-  #get "sessions/new"
-  #get "sessions/create"
-  #get "sessions/destroy"
-  #get "users/new"
-  #get "users/create"
+  
   resources :projects
   resources :sessions
   resources :users
@@ -14,6 +10,8 @@ Crowdfunder::Application.routes.draw do
 
   resources :projects do
     resources :rewards, :only => [:show, :create, :destroy]
+    resources :pledges, :only => [:new, :create]
+
   end
 
   
@@ -21,7 +19,7 @@ Crowdfunder::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
