@@ -1,4 +1,6 @@
 Crowdfunder::Application.routes.draw do
+  get "users/new"
+  get "users/create"
   resources :projects
 
   resources :projects do
