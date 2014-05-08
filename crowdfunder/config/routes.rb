@@ -1,7 +1,16 @@
 Crowdfunder::Application.routes.draw do
-  get "users/new"
-  get "users/create"
+  #get "sessions/new"
+  #get "sessions/create"
+  #get "sessions/destroy"
+  #get "users/new"
+  #get "users/create"
   resources :projects
+  resources :sessions
+  resources :users
+
+  get 'login' => 'sessions#new', :as => :login
+  get 'logout' => 'sessions#destroy', :as => :logout
+  get "signup" => "users#new", :as => "signup"
 
   resources :projects do
     resources :rewards, :only => [:show, :create, :destroy]
