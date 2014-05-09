@@ -3,6 +3,7 @@ Crowdfunder::Application.routes.draw do
   resources :projects
   resources :sessions
   resources :users
+  resources :categories
 
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
