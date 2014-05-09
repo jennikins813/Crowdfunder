@@ -27,7 +27,23 @@
 	<%= @project.end_date %>
 </p>
 
+<% if current_user %>
+	<h3>Rewards:</h3>
+
+	<p>Rewards for <%= @project.title %></p>
+
+	<% @project.rewards.each do |reward| %>
+		<p>
+			<%= reward.description %>
+			<br>
+			<% if reward.user != nil %>
+				<em> by <%= reward.user.name %></em>
+				Added on: <%= reward.created_at %>
+			<% end %>			
+		</p>
+	<% end %>
+<% end %>
 
 
-<%= link_to 'Edit Project', edit_project_path(@project) %>
+<%= link_to 'Edit Project', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
