@@ -3,23 +3,22 @@
 <strong><%= link_to "New Project", "/projects/new" %></strong>
 <br>
 <br>
-<table>
-	<tr>
-		<th>Title:</th>
-		<th>Blurb:</th>
-		<th>Funding Goal:</th>
 
-	</tr>
+<%= form_tag projects_path, method: :get, authentication: false, id: 'search-form' do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search" %>
+<% end %>
 
+<div id="projectts">
 	<% @projects.each do |project| %>
-		<tr>
-			<td><%= project.title %></td>
-			<td><%= project.blurb %></td>
-			<td><%= project.funding_goal %></td>
-			<td><%= link_to 'Show', project_path(project) %> | </td>
-			<td><%= link_to 'Edit', edit_project_path(project) %> | </td>
-			<td><%= link_to 'Destroy', project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-	<% end %>
 
-</table>
+		<%= link_to project_path(project.id) do %>
+			<h2>
+				<%= number_to_currency(project.funding_goal) %>
+	 		    <%= project.title %>
+			</h2>
+		<% end %>	 		    
+
+	<p><%= truncate(project.blurb, length: 100) %></p>
+	<% end %>
+</div>
