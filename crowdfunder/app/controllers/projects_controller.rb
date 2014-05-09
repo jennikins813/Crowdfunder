@@ -2,12 +2,19 @@ class ProjectsController < ApplicationController
   before_filter :require_login, :except => [:index, :show]
   
   def index
-    @projects = Project.all
+    #@projects = Project.all
     @projects = if params[:search]
-      Project.where("name LIKE ?", "%#{params[:search]}%")
-      else
-        Project.all
-      end
+      Project.where("title LIKE ?", "%#{params[:search]}%")
+    else
+      Project.all
+    end
+
+    @projects = @projects.page(params[:page]).order(created_at: :asc)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

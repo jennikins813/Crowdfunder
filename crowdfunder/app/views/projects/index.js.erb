@@ -1,0 +1,4 @@
+$('#projects').html("<%= escape_javascript(render @projects) %>");
+
+$('#projects-pagination').html("<%= j(paginate @projects) %>");
+$('#projects-count').html("<%= j(page_entries_info @projects) %>");

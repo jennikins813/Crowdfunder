@@ -10,6 +10,7 @@ Crowdfunder::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
 
   resources :projects do
+    get 'search', on: :collection
     resources :rewards, :only => [:show, :create, :destroy]
     resources :pledges, :only => [:new, :create]
 
